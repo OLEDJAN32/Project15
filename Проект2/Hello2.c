@@ -46,7 +46,7 @@ bool init()
 	bool success = true;
 	if (SDL_Init(SDL_INIT_EVERYTHING < 0))
 	{
-		printf("SDL íå ñìîã çàïóñòèòüñÿ! SDL_Error: %s\n", SDL_GetError());
+		printf("SDL Ã­Äº Å„Ä›Ã®Äƒ Ã§Å•ÄÃ³Å„ÅˆÄÅˆÃ¼Å„Ë™! SDL_Error: %s\n", SDL_GetError());
 		success = false;
 	}
 	else
@@ -54,7 +54,7 @@ bool init()
 		window = SDL_CreateWindow("CSKA/Spartak", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (window == NULL)
 		{
-			printf("Îêíî íå ìîæåò áûòü ñîçäàíî! SDL_Error: %s\n", SDL_GetError());
+			printf("ÃŽÄ™Ã­Ã® Ã­Äº Ä›Ã®Ä‡ÄºÅˆ Ã¡Å±ÅˆÃ¼ Å„Ã®Ã§Ã¤Å•Ã­Ã®! SDL_Error: %s\n", SDL_GetError());
 			success = false;
 		}
 		else
@@ -105,7 +105,7 @@ void pobeda(int& N)
 	}
 	if (N == 17)
 	{
-		SDL_BlitSurface(Win_Spartak, NULL, screenSurface, &victory);
+		SDL_BlitSurface(Nichya, NULL, screenSurface, &victory);
 		SDL_UpdateWindowSurface(window);
 	}
 }
@@ -115,7 +115,7 @@ bool winer(int* pobeditel_CSKA, int* pobeditel_Spartak, int k)
 	bool konec = false;
 	int N = 0;
 
-	//Ïîáåäà ÖÑÊÀ(êðåñòèêîâ)
+	//ÄŽÃ®Ã¡ÄºÃ¤Å• Ã–ÅƒÄ˜Å”(Ä™Ä‘ÄºÅ„ÅˆÄÄ™Ã®Ã¢)
 	if ((pobeditel_CSKA[1] == 3)) N = 1;
 
 	if ((pobeditel_CSKA[2] == 3)) N = 2;
@@ -132,7 +132,7 @@ bool winer(int* pobeditel_CSKA, int* pobeditel_Spartak, int k)
 
 	if ((pobeditel_CSKA[8] == 3)) N = 8;
 
-	//Ïîáåäà Ñïàðòàêà(íîëèêîâ)
+	//ÄŽÃ®Ã¡ÄºÃ¤Å• ÅƒÄÅ•Ä‘ÅˆÅ•Ä™Å•(Ã­Ã®Ã«ÄÄ™Ã®Ã¢)
 	if ((pobeditel_Spartak[1] == 6)) N = 9;
 
 	if ((pobeditel_Spartak[2] == 6)) N = 10;
@@ -261,8 +261,8 @@ void play()
 		{
 			int x = event.button.x, y = event.button.y;
 					
-			//ÖÑÊÀ(êðåñòèêè)
-			if ((x >= 145) && (x <= 380) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][1] == 1))//êëåòêà 1
+			//Ã–ÅƒÄ˜Å”(Ä™Ä‘ÄºÅ„ÅˆÄÄ™Ä)
+			if ((x >= 145) && (x <= 380) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][1] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 1
 			{
 				SDL_Rect razmer;
 				razmer.x = 200;
@@ -277,7 +277,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][2] == 1))//êëåòêà 2
+			if ((x >= 400) && (x <= 630) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][2] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 2
 			{
 				SDL_Rect razmer;
 				razmer.x = 455;
@@ -291,7 +291,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][3] == 1))//êëåòêà 3
+			if ((x >= 645) && (x <= 880) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][3] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 3
 			{
 				SDL_Rect razmer;
 				razmer.x = 710;
@@ -306,7 +306,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 145) && (x <= 380) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][1] == 1))//êëåòêà 4
+			if ((x >= 145) && (x <= 380) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][1] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 4
 			{
 				SDL_Rect razmer;
 				razmer.x = 200;
@@ -320,7 +320,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][2] == 1))//êëåòêà 5
+			if ((x >= 400) && (x <= 630) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][2] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 5
 			{
 				SDL_Rect razmer;
 				razmer.x = 455;
@@ -336,7 +336,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][3] == 1))//êëåòêà 6
+			if ((x >= 645) && (x <= 880) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][3] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 6
 			{
 				SDL_Rect razmer;
 				razmer.x = 710;
@@ -350,7 +350,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 145) && (x <= 380) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][1] == 1))//êëåòêà 7
+			if ((x >= 145) && (x <= 380) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][1] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 7
 			{
 				SDL_Rect razmer;
 				razmer.x = 200;
@@ -365,7 +365,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][2] == 1))//êëåòêà 8
+			if ((x >= 400) && (x <= 630) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][2] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 8
 			{
 				SDL_Rect razmer;
 				razmer.x = 455;
@@ -379,7 +379,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][3] == 1))//êëåòêà 9
+			if ((x >= 645) && (x <= 880) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][3] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 9
 			{
 				SDL_Rect razmer;
 				razmer.x = 710;
@@ -394,8 +394,8 @@ void play()
 				k += 1;
 			}
 
-			//Ñïàðòàê(íîëèêè)
-			if ((x >= 145) && (x <= 380) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][1] == 1))//êëåòêà 1
+			//ÅƒÄÅ•Ä‘ÅˆÅ•Ä™(Ã­Ã®Ã«ÄÄ™Ä)
+			if ((x >= 145) && (x <= 380) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][1] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 1
 			{
 				SDL_Rect razmer;
 				razmer.x = 150;
@@ -410,7 +410,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][2] == 1))//êëåòêà 2
+			if ((x >= 400) && (x <= 630) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][2] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 2
 			{
 				SDL_Rect razmer;
 				razmer.x = 405;
@@ -424,7 +424,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][3] == 1))//êëåòêà 3
+			if ((x >= 645) && (x <= 880) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][3] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 3
 			{
 				SDL_Rect razmer;
 				razmer.x = 660;
@@ -439,7 +439,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 145) && (x <= 380) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][1] == 1))//êëåòêà 4
+			if ((x >= 145) && (x <= 380) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][1] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 4
 			{
 				SDL_Rect razmer;
 				razmer.x = 150;
@@ -453,7 +453,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][2] == 1))//êëåòêà 5
+			if ((x >= 400) && (x <= 630) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][2] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 5
 			{
 				SDL_Rect razmer;
 				razmer.x = 405;
@@ -469,7 +469,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][3] == 1))//êëåòêà 6
+			if ((x >= 645) && (x <= 880) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][3] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 6
 			{
 				SDL_Rect razmer;
 				razmer.x = 660;
@@ -483,7 +483,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 145) && (x <= 380) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][1] == 1))//êëåòêà 7
+			if ((x >= 145) && (x <= 380) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][1] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 7
 			{
 				SDL_Rect razmer;
 				razmer.x = 150;
@@ -498,7 +498,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][2] == 1))//êëåòêà 8
+			if ((x >= 400) && (x <= 630) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][2] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 8
 			{
 				SDL_Rect razmer;
 				razmer.x = 405;
@@ -512,7 +512,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][3] == 1))//êëåòêà 9
+			if ((x >= 645) && (x <= 880) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][3] == 1))//Ä™Ã«ÄºÅˆÄ™Å• 9
 			{
 				SDL_Rect razmer;
 				razmer.x = 660;
@@ -539,13 +539,13 @@ int main(int argc, char* args[])
 
 	if (!(init()))
 	{
-		printf("Îøèáêà èíèöèàëèçàöèè îêíà\n");
+		printf("ÃŽÅ™ÄÃ¡Ä™Å• ÄÃ­ÄÃ¶ÄÅ•Ã«ÄÃ§Å•Ã¶ÄÄ Ã®Ä™Ã­Å•\n");
 	}
 	else
 	{
 		if (!(media()))
 		{
-			printf("Îøèáêà çàãðóçêè êàðòèíêè\n");
+			printf("ÃŽÅ™ÄÃ¡Ä™Å• Ã§Å•ÄƒÄ‘Ã³Ã§Ä™Ä Ä™Å•Ä‘ÅˆÄÃ­Ä™Ä\n");
 		}
 		else
 		{
@@ -555,7 +555,7 @@ int main(int argc, char* args[])
 			SDL_BlitSurface(myImage, NULL, screenSurface, &dest);
 			SDL_UpdateWindowSurface(window);
 			
-			//ÈÃÐÀ
+			//ÄŒÄ‚ÄÅ”
 			play();
 		}
 	}
