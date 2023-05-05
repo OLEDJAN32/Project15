@@ -46,15 +46,15 @@ bool init()
 	bool success = true;
 	if (SDL_Init(SDL_INIT_EVERYTHING < 0))
 	{
-		printf("SDL íĺ ńěîă çŕďóńňčňüń˙! SDL_Error: %s\n", SDL_GetError());
+		printf("SDL не смог запуститься! SDL_Error: %s\n", SDL_GetError());
 		success = false;
 	}
 	else
-	{	
+	{
 		window = SDL_CreateWindow("CSKA/Spartak", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (window == NULL)
 		{
-			printf("Îęíî íĺ ěîćĺň áűňü ńîçäŕíî! SDL_Error: %s\n", SDL_GetError());
+			printf("Окно не может быть создано! SDL_Error: %s\n", SDL_GetError());
 			success = false;
 		}
 		else
@@ -78,7 +78,7 @@ bool media()
 	Win_CSKA = SDL_LoadBMP("Win_CSKA.bmp");
 	Win_Spartak = SDL_LoadBMP("Win_Spartak.bmp");
 	Nichya = SDL_LoadBMP("Nichya.bmp");
-	if (myImage == NULL || CSKA == NULL || Spartak == NULL || Line1 == NULL || Line2 == NULL || Line3 == NULL || Line4==NULL || Win_CSKA==NULL || Win_Spartak==NULL || Nichya==NULL)
+	if (myImage == NULL || CSKA == NULL || Spartak == NULL || Line1 == NULL || Line2 == NULL || Line3 == NULL || Line4 == NULL || Win_CSKA == NULL || Win_Spartak == NULL || Nichya == NULL)
 	{
 		printf("error\n");
 		success = false;
@@ -115,7 +115,7 @@ bool winer(int* pobeditel_CSKA, int* pobeditel_Spartak, int k)
 	bool konec = false;
 	int N = 0;
 
-	//Ďîáĺäŕ ÖŃĘŔ(ęđĺńňčęîâ)
+	//Победа ЦСКА(крестиков)
 	if ((pobeditel_CSKA[1] == 3)) N = 1;
 
 	if ((pobeditel_CSKA[2] == 3)) N = 2;
@@ -132,7 +132,7 @@ bool winer(int* pobeditel_CSKA, int* pobeditel_Spartak, int k)
 
 	if ((pobeditel_CSKA[8] == 3)) N = 8;
 
-	//Ďîáĺäŕ Ńďŕđňŕęŕ(íîëčęîâ)
+	//Победа Спартака(ноликов)
 	if ((pobeditel_Spartak[1] == 6)) N = 9;
 
 	if ((pobeditel_Spartak[2] == 6)) N = 10;
@@ -260,9 +260,9 @@ void play()
 		if ((event.button.button == SDL_BUTTON_LEFT) && !(winer(pobeditel_CSKA, pobeditel_Spartak, k)))
 		{
 			int x = event.button.x, y = event.button.y;
-					
-			//ÖŃĘŔ(ęđĺńňčęč)
-			if ((x >= 145) && (x <= 380) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][1] == 1))//ęëĺňęŕ 1
+
+			//ЦСКА(крестики)
+			if ((x >= 145) && (x <= 380) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][1] == 1))//клетка 1
 			{
 				SDL_Rect razmer;
 				razmer.x = 200;
@@ -277,7 +277,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][2] == 1))//ęëĺňęŕ 2
+			if ((x >= 400) && (x <= 630) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][2] == 1))//клетка 2
 			{
 				SDL_Rect razmer;
 				razmer.x = 455;
@@ -291,7 +291,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][3] == 1))//ęëĺňęŕ 3
+			if ((x >= 645) && (x <= 880) && (y >= 5) && (y <= 240) && (hod == true) && (p.povtor[1][3] == 1))//клетка 3
 			{
 				SDL_Rect razmer;
 				razmer.x = 710;
@@ -306,7 +306,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 145) && (x <= 380) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][1] == 1))//ęëĺňęŕ 4
+			if ((x >= 145) && (x <= 380) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][1] == 1))//клетка 4
 			{
 				SDL_Rect razmer;
 				razmer.x = 200;
@@ -320,7 +320,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][2] == 1))//ęëĺňęŕ 5
+			if ((x >= 400) && (x <= 630) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][2] == 1))//клетка 5
 			{
 				SDL_Rect razmer;
 				razmer.x = 455;
@@ -336,7 +336,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][3] == 1))//ęëĺňęŕ 6
+			if ((x >= 645) && (x <= 880) && (y >= 255) && (y <= 480) && (hod == true) && (p.povtor[2][3] == 1))//клетка 6
 			{
 				SDL_Rect razmer;
 				razmer.x = 710;
@@ -350,7 +350,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 145) && (x <= 380) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][1] == 1))//ęëĺňęŕ 7
+			if ((x >= 145) && (x <= 380) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][1] == 1))//клетка 7
 			{
 				SDL_Rect razmer;
 				razmer.x = 200;
@@ -365,7 +365,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][2] == 1))//ęëĺňęŕ 8
+			if ((x >= 400) && (x <= 630) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][2] == 1))//клетка 8
 			{
 				SDL_Rect razmer;
 				razmer.x = 455;
@@ -379,7 +379,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][3] == 1))//ęëĺňęŕ 9
+			if ((x >= 645) && (x <= 880) && (y >= 495) && (y <= 720) && (hod == true) && (p.povtor[3][3] == 1))//клетка 9
 			{
 				SDL_Rect razmer;
 				razmer.x = 710;
@@ -394,8 +394,8 @@ void play()
 				k += 1;
 			}
 
-			//Ńďŕđňŕę(íîëčęč)
-			if ((x >= 145) && (x <= 380) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][1] == 1))//ęëĺňęŕ 1
+			//Спартак(нолики)
+			if ((x >= 145) && (x <= 380) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][1] == 1))//клетка 1
 			{
 				SDL_Rect razmer;
 				razmer.x = 150;
@@ -410,7 +410,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][2] == 1))//ęëĺňęŕ 2
+			if ((x >= 400) && (x <= 630) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][2] == 1))//клетка 2
 			{
 				SDL_Rect razmer;
 				razmer.x = 405;
@@ -424,7 +424,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][3] == 1))//ęëĺňęŕ 3
+			if ((x >= 645) && (x <= 880) && (y >= 5) && (y <= 240) && (hod == false) && (p.povtor[1][3] == 1))//клетка 3
 			{
 				SDL_Rect razmer;
 				razmer.x = 660;
@@ -439,7 +439,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 145) && (x <= 380) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][1] == 1))//ęëĺňęŕ 4
+			if ((x >= 145) && (x <= 380) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][1] == 1))//клетка 4
 			{
 				SDL_Rect razmer;
 				razmer.x = 150;
@@ -453,7 +453,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][2] == 1))//ęëĺňęŕ 5
+			if ((x >= 400) && (x <= 630) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][2] == 1))//клетка 5
 			{
 				SDL_Rect razmer;
 				razmer.x = 405;
@@ -469,7 +469,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][3] == 1))//ęëĺňęŕ 6
+			if ((x >= 645) && (x <= 880) && (y >= 255) && (y <= 480) && (hod == false) && (p.povtor[2][3] == 1))//клетка 6
 			{
 				SDL_Rect razmer;
 				razmer.x = 660;
@@ -483,7 +483,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 145) && (x <= 380) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][1] == 1))//ęëĺňęŕ 7
+			if ((x >= 145) && (x <= 380) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][1] == 1))//клетка 7
 			{
 				SDL_Rect razmer;
 				razmer.x = 150;
@@ -498,7 +498,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 400) && (x <= 630) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][2] == 1))//ęëĺňęŕ 8
+			if ((x >= 400) && (x <= 630) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][2] == 1))//клетка 8
 			{
 				SDL_Rect razmer;
 				razmer.x = 405;
@@ -512,7 +512,7 @@ void play()
 				k += 1;
 			}
 
-			if ((x >= 645) && (x <= 880) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][3] == 1))//ęëĺňęŕ 9
+			if ((x >= 645) && (x <= 880) && (y >= 495) && (y <= 720) && (hod == false) && (p.povtor[3][3] == 1))//клетка 9
 			{
 				SDL_Rect razmer;
 				razmer.x = 660;
@@ -539,13 +539,13 @@ int main(int argc, char* args[])
 
 	if (!(init()))
 	{
-		printf("Îřčáęŕ číčöčŕëčçŕöčč îęíŕ\n");
+		printf("Ошибка инициализации окна\n");
 	}
 	else
 	{
 		if (!(media()))
 		{
-			printf("Îřčáęŕ çŕăđóçęč ęŕđňčíęč\n");
+			printf("Ошибка загрузки картинки\n");
 		}
 		else
 		{
@@ -554,8 +554,8 @@ int main(int argc, char* args[])
 			dest.y = -41;
 			SDL_BlitSurface(myImage, NULL, screenSurface, &dest);
 			SDL_UpdateWindowSurface(window);
-			
-			//ČĂĐŔ
+
+			//ИГРА
 			play();
 		}
 	}
